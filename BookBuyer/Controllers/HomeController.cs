@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BookBuyer.Models;
+using BookBuyer.Models.ViewModels;
 
 namespace BookBuyer.Controllers
 {
@@ -20,16 +21,27 @@ namespace BookBuyer.Controllers
             repo = temp;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNum = 1)
         {
-            var test = repo.Books.ToList();
+            int pageSize = 5;
 
-            return View(test);
-        }
+            var viewmod = new BookBuyerViewModel
+            {
+                Books = repo.Books
+                .OrderBy(p => p.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
 
-        public IActionResult Privacy()
-        {
-            return View();
+            PageInfo = new PageInfo
+            {
+                Currentpage = pageNum,
+                TotalNumBooks = repo.Books.Count(),
+                BooksPerPage = pageSize
+            }
+
+            };
+
+            return View(viewmod);
         }
      
  

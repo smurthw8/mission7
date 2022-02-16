@@ -18,4 +18,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Infastructure\" />
+    <None Remove="Models\ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infastructure\" />
+    <Folder Include="Models\ViewModels\" />
+  </ItemGroup>
 </Project>
