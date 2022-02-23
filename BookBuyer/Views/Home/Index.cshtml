@@ -4,36 +4,24 @@
 
 @model BookBuyerViewModel
 
-
-@foreach (Books b in Model.Books)
-{
-
-    <div class="card card-outline-primary m-1 p-1">
-        <div class="bg-faded p-1">
-            <h4>
-                @b.Title
-                <span class="badge badge-pill badge-primary" style="float:right">
-                    <small>$@b.Price.ToString()</small>
-                </span>
-            </h4>
-        </div>
-        <div class="card-text p-1">
-            <ul>
-                <li>Book Id: @b.BookId</li>
-                <li>Author: @b.Author</li>
-                <li>Publisher: @b.Publisher</li>
-                <li>Isbn: @b.Isbn</li>
-                <li>Classification: @b.Classification</li>
-                <li>Category: @b.Category</li>
-                <li>Page Count: @b.PageCount</li>
-            </ul>
-        </div>
-
+<div class="row m-1 p-1">
+    <div id="categories" class="col-3">
+        Buy More Books for Less Bucks<br />
+        @*//pull in view componenet*@
+        <vc:category></vc:category>
     </div>
-}
-
-@*see custom tag helper ref > go get all info from Pageinfo model*@
-<div page-ref="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1 btn ">
+    <div class="col-9">
+        @foreach (Books b in Model.Books)
+        {
+            //specify model so it is then passed to partial view
+            <partial name="BookSummary" model="b" />
+        }
+        @*see custom tag helper ref > go get all info from Pageinfo model*@
+        @*deccides when dynamically building if button should be highlighted or not*@
+        <div page-ref="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" class="btn-group pull-right m-1 btn ">
+        </div>
+    </div>
 </div>
+

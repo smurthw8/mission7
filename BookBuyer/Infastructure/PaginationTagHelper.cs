@@ -55,6 +55,7 @@ namespace BookBuyer.Infastructure
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
+                    //this means if page on = current page, ?then PageClassSelected else PageClass Normal
                     tb.AddCssClass(i == PageRef.Currentpage
                         ? PageClassSelected : PageClassNormal);
                 }
