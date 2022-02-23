@@ -46,7 +46,7 @@ namespace BookBuyer.Infastructure
             TagBuilder final = new TagBuilder("div");
             //loop through and create individual links
 
-            for (int i = 1; i < PageRef.TotalPages; i++)
+            for (int i = 1; i <= PageRef.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
