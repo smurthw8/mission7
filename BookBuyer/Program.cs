@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,10 @@ namespace BookBuyer
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+            CreateHostBuilder(args).Build().Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -23,4 +28,5 @@ namespace BookBuyer
                     webBuilder.UseStartup<Startup>();
                 });
     }
+
 }
