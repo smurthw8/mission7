@@ -33,6 +33,12 @@ namespace BookBuyer
            });
 
             services.AddScoped<IBookBuyerRepository, EFBookBuyerRepository>();
+
+            services.AddRazorPages();
+
+            //enable sessions
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +56,7 @@ namespace BookBuyer
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -80,6 +86,8 @@ namespace BookBuyer
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }

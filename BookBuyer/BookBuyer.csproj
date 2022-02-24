@@ -16,6 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="bootstrap" Version="3.4.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,8 @@
     <None Remove="Components\" />
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\Category\" />
+    <None Remove="Pages\" />
+    <None Remove="bootstrap" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infastructure\" />
@@ -31,5 +34,6 @@
     <Folder Include="Components\" />
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Category\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
 </Project>
