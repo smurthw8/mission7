@@ -1,4 +1,4 @@
-﻿@page
+﻿@page  
 @model BookBuyer.Pages.CartModel
 @{
 }
@@ -22,15 +22,15 @@
             <tr>
                 <td>@i.Book.Title</td>
                 <td>@i.Quantity</td>
-                <td>@i.Book.Price</td>
-                <td>@(i.Quantity * i.Book.Price)</td>
+                <td>$@i.Book.Price</td>
+                <td>$@(Math.Round(i.Quantity * i.Book.Price, 2))</td>
             </tr>
         }
     </tbody>
     <tfoot>
         <tr>
             <td colspan="3">Total:</td>
-            <td>$@Model.basket.CalculateTotal().ToString()</td>
+            <td>$@((Math.Round(Model.basket.CalculateTotal(),2)).ToString())</td>
         </tr>
     </tfoot>
 
