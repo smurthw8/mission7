@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BookBuyer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +40,10 @@ namespace BookBuyer
             //enable sessions
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            //set instance of sessionbasket, (when see "Basket" going to get session/new session
+            services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

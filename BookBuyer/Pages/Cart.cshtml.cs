@@ -12,14 +12,14 @@ namespace BookBuyer.Pages
     public class CartModel : PageModel
     {
         private IBookBuyerRepository repo { get; set; }
+        public Basket basket { get; set; }
 
         //creates an instance of the data to use 
-        public CartModel (IBookBuyerRepository temp)
+        public CartModel (IBookBuyerRepository temp, Basket b)
         {
             repo = temp;
+            basket = b;
         }
-
-        public Basket basket { get; set; }
 
         public string ReturnUrl { get; set; }
 
@@ -27,7 +27,6 @@ namespace BookBuyer.Pages
         {
             //if url is empty, will take to main page
             ReturnUrl = url ?? "/";
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
         }
 
         public IActionResult OnPost(int bookId, string returnurl)
@@ -35,11 +34,15 @@ namespace BookBuyer.Pages
             Books b = repo.Books.FirstOrDefault(x => x.BookId == bookId);
 
             //if basket exists, use that basket, if not create and use new Basket
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
             basket.AddItem(b, 1);
 
-            //code to set values of basket
-            HttpContext.Session.SetJson("basket", basket);
+            return RedirectToPage(new { ReturnUrl = returnurl });
+        }
+
+        public IActionResult OnPostRemove(int bookid, string returnurl)
+        {
+            //go to basket, find list item with id passed in, remove using Basket class method
+            basket.RemoveItem(basket.Items.First(x => x.Book.BookId == bookid).Book);
 
             return RedirectToPage(new { ReturnUrl = returnurl });
         }

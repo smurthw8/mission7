@@ -17,6 +17,7 @@ namespace BookBuyer.Infastructure
 
         private IUrlHelperFactory uhf;
 
+
         public PaginationTagHelper (IUrlHelperFactory temp)
         {
             uhf = temp;
@@ -65,6 +66,8 @@ namespace BookBuyer.Infastructure
             }
 
             output.Content.AppendHtml(final.InnerHtml);
+
+
         }
 
 

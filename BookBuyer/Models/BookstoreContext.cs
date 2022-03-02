@@ -22,4 +22,5 @@ namespace BookBuyer.Models
         public DbSet<Books> Books { get; set; }
 
     }
+
 }

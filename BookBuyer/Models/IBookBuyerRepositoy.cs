@@ -7,4 +7,5 @@ namespace BookBuyer.Models
     {
         IQueryable<Books> Books { get; }
     }
+
 }

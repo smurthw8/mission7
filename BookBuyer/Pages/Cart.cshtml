@@ -24,7 +24,15 @@
                 <td>@i.Quantity</td>
                 <td>$@i.Book.Price</td>
                 <td>$@((i.Quantity * i.Book.Price).ToString("#,##0.00"))</td>
-                @*<td>$@(Math.Round(i.Quantity * i.Book.Price, 2))</td>*@
+
+                <td class="text-center">
+                    <form method="post" asp-page-handler="Remove">
+                        <input type="hidden" name="bookid" value="@i.Book.BookId"/>
+                        <input type="hidden" name="returnURL" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">Remove Item</button>
+
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
