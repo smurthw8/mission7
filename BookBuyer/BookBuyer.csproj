@@ -27,6 +27,9 @@
     <None Remove="Views\Shared\Components\Category\" />
     <None Remove="Pages\" />
     <None Remove="bootstrap" />
+    <None Remove="Views\Purchase\" />
+    <None Remove="Views\Shared\Components\CartSummary\" />
+    <None Remove="FontAwesome.MVC" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infastructure\" />
@@ -35,5 +38,7 @@
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Category\" />
     <Folder Include="Pages\" />
+    <Folder Include="Views\Purchase\" />
+    <Folder Include="Views\Shared\Components\CartSummary\" />
   </ItemGroup>
 </Project>

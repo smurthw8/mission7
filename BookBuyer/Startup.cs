@@ -34,6 +34,8 @@ namespace BookBuyer
            });
 
             services.AddScoped<IBookBuyerRepository, EFBookBuyerRepository>();
+            //when refer to the Interface, refering to the EF
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             services.AddRazorPages();
 
