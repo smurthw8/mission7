@@ -6,17 +6,21 @@
 
 <div class="container-fluid">
     <div class="row p-2">
-        <div class="col-3 d-grid">
-            @*navlink navigates within files themselves*@
-            <NavLink class="btn btn-outline-primary btn-block"
-                     href="/admin/books"
-                     ActiveClass="btn-primary text-white"
-                     Match="NavLinkMatch.Prefix">Books</NavLink>
-            <NavLink class="btn btn-outline-primary btn-block"
-                     href="/admin/orders"
-                     ActiveClass="btn-primary text-white"
-                     Match="NavLinkMatch.Prefix">Orders</NavLink>
+
+        <div class="col-3">
+            <div class="d-grid gap-2">
+                @*navlink navigates within files themselves*@
+                <NavLink class="btn btn-outline-primary btn-block"
+                         href="/admin/books"
+                         ActiveClass="btn-primary text-white"
+                         Match="NavLinkMatch.Prefix">Books</NavLink>
+                <NavLink class="btn btn-outline-primary btn-block"
+                         href="/admin/orders"
+                         ActiveClass="btn-primary text-white"
+                         Match="NavLinkMatch.Prefix">Orders</NavLink>
+            </div>
         </div>
+
         <div class="col">
             @Body
         </div>
