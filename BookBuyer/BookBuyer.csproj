@@ -30,6 +30,7 @@
     <None Remove="Views\Purchase\" />
     <None Remove="Views\Shared\Components\CartSummary\" />
     <None Remove="FontAwesome.MVC" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infastructure\" />
@@ -40,5 +41,6 @@
     <Folder Include="Pages\" />
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\Shared\Components\CartSummary\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
 </Project>

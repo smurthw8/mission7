@@ -30,5 +30,9 @@ namespace BookBuyer.Models
 
         [Required(ErrorMessage = "Please Enter an Country Name")]
         public string Country { get; set; }
+
+        //BindNeverAttribute means not in form/passed through url
+        [BindNever]
+        public bool Shipped { get; set; }
     }
 }
