@@ -14,8 +14,8 @@
     </small>
     }
 <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Cart"
-   asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+   asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()"
+   data-toggle="tooltip" data-placement="bottom" title="Go to cart">
     <i class="fas fa-shopping-cart"></i>
-
 </a>
 </div>

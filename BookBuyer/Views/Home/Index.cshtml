@@ -4,6 +4,20 @@
 
 @model BookBuyerViewModel
 
+<div id="mdb-preloader" class="d-flex justify-content-center">
+    <div></div>
+    <div class="preloader-wrapper active">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="gap-patch">
+            <div class="circle"></div>
+        </div>
+        <div></div>
+    </div>
+</div>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
 <div class="row m-1 p-1">
     <div id="categories" class="col-3">
         Buy More Books for Less Bucks :)<br />

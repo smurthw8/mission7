@@ -1,4 +1,5 @@
-﻿@page  
+﻿@page
+
 @model BookBuyer.Pages.CartModel
 @{
 }
@@ -27,10 +28,9 @@
 
                 <td class="text-center">
                     <form method="post" asp-page-handler="Remove">
-                        <input type="hidden" name="bookid" value="@i.Book.BookId"/>
+                        <input type="hidden" name="bookid" value="@i.Book.BookId" />
                         <input type="hidden" name="returnURL" value="@Model.ReturnUrl" />
-                        <button type="submit" class="btn btn-sm btn-danger">Remove Item</button>
-
+                        <button type="submit" id="deletebook" class="btn btn-sm btn-danger" >Remove Item</button>
                     </form>
                 </td>
             </tr>
@@ -42,9 +42,7 @@
             <td>$@(Model.basket.CalculateTotal().ToString("#,##0.00"))</td>
         </tr>
     </tfoot>
-
 </table>
-
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Browsing</a>
     <a class="btn btn-primary" asp-action="Checkout" asp-controller="Purchase">Checkout</a>
