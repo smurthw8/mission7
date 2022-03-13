@@ -12,7 +12,18 @@
     <div class="bg-dark text-white p-2">
         <div class="container-fluid">
             <div class="row">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                        =
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-action="Account" asp-controller="Login" >Admin</a>
+                        <a class="dropdown-item" asp-action="Home" asp-controller="Index">See Books</a>
+                        <a class="dropdown-item" asp-action="Purchase" asp-controller="Checkout">Checkout</a>
+                    </div>
+                </div>
                 <div class="col navbar-brand">BOOKBUYER</div>
+ 
                 <div class="col-6 text-right">
                     <vc:cart-summary />
                 </div>

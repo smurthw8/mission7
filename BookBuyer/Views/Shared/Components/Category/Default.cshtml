@@ -4,17 +4,22 @@
 
 @model IEnumerable<string>
 
-<br /><div class="d-grid mb-2">
+<div class="jumbotron ">
+    <div class="container">
+        <p>Buy More Books 4 Less Bucks :)</p>
+        <div class="d-grid mb-2">
 
-    <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="" asp-route-pageNum="1"
-       class="btn w-100 @(ViewBag.SelectedCategory == null ? "btn-primary" : "btn-outline-secondary")">Home</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="" asp-route-pageNum="1"
+                class="btn w-100 @(ViewBag.SelectedCategory == null ? "btn-primary" : "btn-outline-secondary")">Home</a>
+        </div>
+
+        @foreach (string cat in Model)
+        {
+            <div class="d-grid mb-2">
+                <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="@cat" asp-route-pageNum="1"
+                    class="btn w-100 @(ViewBag.SelectedCategory == cat ? "btn-primary" : "btn-outline-secondary")">@cat</a>
+            </div>
+        }
+    </div>
 </div>
 
-@foreach (string cat in Model)
-{
-    <div class="d-grid mb-2">
-        <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="@cat" asp-route-pageNum="1"
-           class="btn w-100 @(ViewBag.SelectedCategory == cat ? "btn-primary" : "btn-outline-secondary")">@cat</a>
-    </div>
-}
-  

@@ -7,6 +7,31 @@
 
 <h2>Your Cart</h2>
 
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Modal body..
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -30,11 +55,12 @@
                     <form method="post" asp-page-handler="Remove">
                         <input type="hidden" name="bookid" value="@i.Book.BookId" />
                         <input type="hidden" name="returnURL" value="@Model.ReturnUrl" />
-                        <button type="submit" id="deletebook" class="btn btn-sm btn-danger" >Remove Item</button>
+                        <button type="submit" id="deletebook" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal">Remove Item</button>
                     </form>
                 </td>
             </tr>
         }
+        @*data-target="#myalert" data-toggle="modal"*@
     </tbody>
     <tfoot>
         <tr>
